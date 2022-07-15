@@ -34,11 +34,10 @@ app.get(['/facebook', '/instagram'], function(req, res) {
       console.log('HUB TOKEN FAILED!!')
       res.sendStatus(400)
     }
-  }
-  else(
+  }else{
     console.log("HUB.MODE CHECK FAILED")
     res.sendStatus(400)
-  )
+  }
   // if (
   //   req.query['hub.mode'] == 'subscribe' &&
   //   req.query['hub.verify_token'] == token
