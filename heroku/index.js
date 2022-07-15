@@ -65,6 +65,10 @@ app.post('/facebook', function(req, res) {
   // Process the Facebook updates here
   received_updates.unshift(req.body);
   console.log(req.body)
+  console.log(reg.body.entry)
+  console.log(req.body.entry.changes)
+  console.log(req.body.entry.changes.field)
+  console.log(req.body.entry.changes.value)
   res.sendStatus(200);
 });
 
