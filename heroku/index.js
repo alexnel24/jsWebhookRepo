@@ -65,7 +65,7 @@ app.post('/facebook', function(req, res) {
   // Process the Facebook updates here
   received_updates.unshift(req.body);
   console.log('*********');
-  const obj = JSON.parse(req.body);
+  const obj = JSON.stringify(req.body));
   console.log(obj);
   console.log('********');
 
