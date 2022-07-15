@@ -26,15 +26,28 @@ app.get('/', function(req, res) {
 });
 
 app.get(['/facebook', '/instagram'], function(req, res) {
-  if (
-    req.query['hub.mode'] == 'subscribe' &&
-    req.query['hub.verify_token'] == token
-  ) {
-    res.send(req.query['hub.challenge']);
-  } else {
-    
-    res.sendStatus(400);
+  if (req.query['hub.mode'] == 'subscribe'){
+    console.log('hub.mode check successful!')
+    if(req.query['hub.verify_token'] == token){
+      console.log('hub token successful!')
+    }else{
+      console.log('HUB TOKEN FAILED!!')
+      res.sendStatus(400)
+    }
   }
+  else(
+    console.log("HUB.MODE CHECK FAILED")
+    res.sendStatus(400)
+  )
+  // if (
+  //   req.query['hub.mode'] == 'subscribe' &&
+  //   req.query['hub.verify_token'] == token
+  // ) {
+  //   res.send(req.query['hub.challenge']);
+  // } else {
+    
+  //   res.sendStatus(400);
+  // }
 });
 
 app.post('/facebook', function(req, res) {
