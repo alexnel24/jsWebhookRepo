@@ -28,6 +28,7 @@ app.get('/', function(req, res) {
 app.get(['/facebook', '/instagram'], function(req, res) {
   if (req.query['hub.mode'] == 'subscribe'){
     console.log('hub.mode check successful!')
+    console.log(req.query['hub.verify_token'])
     if(req.query['hub.verify_token'] == token){
       console.log('hub token successful!')
     }else{
